@@ -415,12 +415,22 @@
     /* border: 1px solid red; */
 }
 
-.confirmEditNoteBtnUnclickable {
-    color: rgb(118, 117, 117) !important;
+.editNoteBtnsDiv .confirmEditNoteBtn {
+    color: rgb(118, 117, 117);
     text-shadow: 
     -2px 1px 2px rgb(86, 241, 231)
     , 2px 0 2px rgb(27, 74, 50)
     , -2px 0 1px rgb(146, 159, 147)
+    , 0px 2px 1px rgba(29, 160, 55, 0.99)
+    , 0px 0px 10px rgba(39, 19, 255, 0.8);
+}
+
+.confirmEditNoteBtnClickable {
+    color: rgb(96, 255, 244) !important;
+    text-shadow: 
+    2px 0 2px rgb(255, 133, 133)
+    , 2px 0 2px rgb(27, 74, 50)
+    , -2px 0 1px rgb(63, 169, 72)
     , 0px 2px 1px rgba(29, 160, 55, 0.99)
     , 0px 0px 10px rgba(39, 19, 255, 0.8)
     !important;

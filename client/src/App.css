@@ -31,6 +31,12 @@ body:not(.touchScreen)::-webkit-scrollbar-thumb:hover {
   background: rgb(31, 56, 110);
 }
 
+.appContainer {
+  position: relative;
+  padding-bottom: 100px;
+  background: radial-gradient(rgb(184, 67, 67), rgb(7, 13, 42));
+}
+
 .parentDivWrapper {
   position: relative;
   min-width: 100%;
@@ -43,8 +49,8 @@ body:not(.touchScreen)::-webkit-scrollbar-thumb:hover {
   /* background: linear-gradient(rgb(204, 204, 204), lightgrey); */
   /* background: linear-gradient(to top, rgb(14, 7, 44), rgb(17, 49, 81)); */
   /* background: linear-gradient(rgb(7, 13, 42), rgb(184, 67, 67)); */
-  background: radial-gradient(rgb(184, 67, 67), rgb(7, 13, 42));
   /* background: radial-gradient(rgb(126, 35, 35), rgb(14, 25, 80)); */
+  /* background: radial-gradient(rgb(184, 67, 67), rgb(7, 13, 42)); */
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -73,6 +79,8 @@ body:not(.touchScreen)::-webkit-scrollbar-thumb:hover {
   bottom: 10px;
   right: 10px;
   /* border: 1px solid yellow; */
+  z-index: 3;
+  user-select: none;
 }
 
 #appVer {

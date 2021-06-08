@@ -1,0 +1,86 @@
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* flex-grow: 1; */
+  /* display: none; */
+  height: fit-content;
+  margin-bottom: -50px;
+  padding-bottom: 5px;
+  font-size: 13px;
+  position: absolute;
+  bottom: 50px;
+  // border: 2px solid red;
+
+  a {
+    text-align: center;
+    color: darkgrey;
+    text-decoration: none;
+    position: relative;
+    margin: 0px;
+    display: flex;
+    transition: 1s;
+  }
+
+  p {
+    margin: 0px;
+    margin-left: 5px;
+    position: relative;
+    color: darkgrey;
+
+    span {
+      position: absolute;
+      left: 0px;
+      background: -webkit-linear-gradient(cyan, blueviolet);
+      transition: 1s;
+      transform: scaleY(0) skew(30deg) rotateX(90deg);
+      opacity: 0;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}
+
+.footerLinkWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  /* border: 1px solid red; */
+  height: fit-content;
+  margin: 10px;
+
+  &::before {
+    position: absolute;
+    content: "";
+    bottom: -2px;
+    left: 0px;
+    width: 100%;
+    height: 1px;
+    /* background-color: white; */
+    background: linear-gradient(to right, violet, blueviolet, cyan);
+    transition: 1s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+
+  &:hover a {
+    color: grey;
+  }
+
+  &:hover::before {
+    transform: scaleX(1);
+  }
+
+  &:hover p span {
+    transform: unset;
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .footer {
+    font-size: 14px;
+  }
+}

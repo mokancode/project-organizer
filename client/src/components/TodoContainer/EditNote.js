@@ -54,7 +54,7 @@ export class EditNote extends Component {
     this.setState({ editableSubNoteList });
   }
 
-  removeSubNote(subNoteId) {
+  removeSubNote = (subNoteId) => {
     // console.log("subnote id: ", subNoteId);
     const { editableSubNoteList } = this.state;
     this.setState({
@@ -62,7 +62,7 @@ export class EditNote extends Component {
         return subNoteItem.id !== subNoteId;
       }),
     });
-  }
+  };
 
   closeEditNote = (e) => {
     if (e.key === "Escape") this.setState({ cancelAnim: true });
@@ -72,7 +72,7 @@ export class EditNote extends Component {
     this.props.setIgnoreNavbarShortcuts(true);
     window.addEventListener("keydown", (e) => this.closeEditNote(e));
   }
-  
+
   componentWillUnmount() {
     this.props.setIgnoreNavbarShortcuts(false);
     window.removeEventListener("keydown", (e) => this.closeEditNote(e));
@@ -103,6 +103,20 @@ export class EditNote extends Component {
               ref={this.textAreaRef}
               onKeyDown={async (e) => {
                 if (e.ctrlKey && e.keyCode === 13) {
+                  if (!isEmpty(subNoteText) || !isEmpty(this.subNoteInputRef.current.value)) {
+                    editableSubNoteList.push({ text: subNoteText, id: shortid.generate() });
+                    await this.setState({ editableSubNoteList }, () => {
+                      this.setState({ subNoteText: "" });
+                      this.subNoteInputRef.current.value = "";
+                    });
+                  } else if (
+                    isEmpty(noteText) ||
+                    (!isEmpty(noteText) &&
+                      String(noteText).localeCompare(this.props.editableNoteObject.text) === 0 &&
+                      JSON.stringify(editableSubNoteList) === JSON.stringify(this.props.originalSubNoteList))
+                  )
+                    return;
+
                   //   await this.addNoteShortcut(e, { text: noteText, subnotes: editableSubNoteList }, this.textAreaRef);
                   await this.editNote(noteId, noteText, editableSubNoteList);
 
@@ -199,7 +213,13 @@ export class EditNote extends Component {
             <div className="editNoteBtnsDiv">
               <button
                 onClick={async (e) => {
-                  if (
+                  if (!isEmpty(subNoteText) || !isEmpty(this.subNoteInputRef.current.value)) {
+                    editableSubNoteList.push({ text: subNoteText, id: shortid.generate() });
+                    await this.setState({ editableSubNoteList }, () => {
+                      this.setState({ subNoteText: "" });
+                      this.subNoteInputRef.current.value = "";
+                    });
+                  } else if (
                     isEmpty(noteText) ||
                     (!isEmpty(noteText) &&
                       String(noteText).localeCompare(this.props.editableNoteObject.text) === 0 &&
@@ -211,14 +231,12 @@ export class EditNote extends Component {
                   this.setState({ cancelAnim: true });
                 }}
                 className={classnames("confirmEditNoteBtn", {
-                  confirmEditNoteBtnUnclickable:
-                    // note is empty
-                    isEmpty(noteText) ||
-                    // // OR note hasn't changed
-                    (!isEmpty(noteText) &&
-                      String(noteText).localeCompare(this.props.editableNoteObject.text) === 0 &&
-                      // // AND list hasn't changed
-                      JSON.stringify(editableSubNoteList) === JSON.stringify(this.props.originalSubNoteList)),
+                  confirmEditNoteBtnClickable:
+                    // OR note hasn't changed
+                    (!isEmpty(noteText) && String(noteText).localeCompare(this.props.editableNoteObject.text) !== 0) ||
+                    // AND list hasn't changed
+                    JSON.stringify(editableSubNoteList) !== JSON.stringify(this.props.originalSubNoteList) ||
+                    !isEmpty(subNoteText),
                 })}
               >
                 Confirm
@@ -227,7 +245,7 @@ export class EditNote extends Component {
                 onClick={async (e) => {
                   this.setState({ cancelAnim: true });
                 }}
-                className="cancelEditNoteBtn confirmEditNoteBtn"
+                className="cancelEditNoteBtn"
               >
                 Cancel
               </button>

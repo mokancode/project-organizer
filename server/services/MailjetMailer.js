@@ -1,7 +1,7 @@
 function sendMail(templateParams) {
   console.log("attempting to send email");
 
-  const mailjet = require("node-mailjet").connect(process.env.MaILJET_API_KEY, process.env.MaILJET_SECRET_KEY);
+  const mailjet = require("node-mailjet").connect(process.env.MAILJET_API_KEY, process.env.MAILJET_SECRET_KEY);
 
   return new Promise(function (resolve, reject) {
     const request = mailjet.post("send", { "version": "v3.1" }).request({

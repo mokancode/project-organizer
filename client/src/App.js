@@ -12,6 +12,7 @@ import Controller from "./Controller";
 import store from "./store";
 import isEmpty from "./validation/is-empty";
 import axios from "axios";
+import Footer from "./components/Footer/Footer";
 
 // Check for token
 if (localStorage.jwtToken) {
@@ -49,7 +50,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      appVer: "1.0.0.2",
+      appVer: "1.0.0.3",
     };
   }
 
@@ -86,6 +87,8 @@ class App extends Component {
         <div id="appVerWrapper">
           <p id="appVer">v{appVer}</p>
         </div>
+
+        <Footer />
       </div>
     );
   }

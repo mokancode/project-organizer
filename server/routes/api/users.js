@@ -330,6 +330,7 @@ router.get("/confirm/:token", (req, res) => {
 // @desc Upload notes
 // @access Private
 router.post("/uploadnotes", passport.authenticate("jwt", { session: false }), (req, res) => {
+  console.log("uploadnotes");
   const { notes } = req.body;
   var errors = {};
   // User.findOne({ username }).exec((err, user) => {

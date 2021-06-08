@@ -267,10 +267,7 @@ export class TodoContainer extends Component {
                 <div
                   className="confrimEditProjectNameBtn"
                   onClick={async () => {
-                    if (isEmpty(editedProjectName)) {
-                      // this.setState({})
-                      return;
-                    }
+                    if (isEmpty(editedProjectName) || editedProjectName === currentProject.name) return;
                     this.setState({ projectNameEditEnabled: false });
                     this.editProjectName(editedProjectName);
                   }}
@@ -384,6 +381,14 @@ export class TodoContainer extends Component {
                     // };
                     // mPromise();
 
+                    if (isEmpty(noteText)) return;
+                    else if (!isEmpty(subNoteText) || !isEmpty(this.subNoteInputRef.current.value)) {
+                      subNoteList.push({ text: subNoteText, id: shortid.generate() });
+                      this.setState({ subNoteList, subNoteText: "" }, (e) => {
+                        this.subnoteInputRef.current.value = "";
+                      });
+                    }
+
                     await this.addNoteShortcut(e, { text: noteText, subnotes: subNoteList }, this.textAreaRef);
                     this.setState({ noteText: "", subNoteList: [] });
 
@@ -451,7 +456,7 @@ export class TodoContainer extends Component {
                       if (e.ctrlKey && e.keyCode === 13) {
                         if (isEmpty(subNoteText)) return;
                         subNoteList.push({ text: subNoteText, id: shortid.generate() });
-                        await this.setState({ subNoteList, subNoteText: "" }, (e) => {
+                        await this.setState({ subNoteList, subNoteText: "" }, () => {
                           this.subnoteInputRef.current.value = "";
                         });
 
@@ -471,7 +476,7 @@ export class TodoContainer extends Component {
                     onClick={async (e) => {
                       if (isEmpty(subNoteText)) return;
                       subNoteList.push({ text: subNoteText, id: shortid.generate() });
-                      await this.setState({ subNoteList, subNoteText: "" }, (e) => {
+                      await this.setState({ subNoteList, subNoteText: "" }, () => {
                         this.subnoteInputRef.current.value = "";
                       });
 
@@ -498,8 +503,13 @@ export class TodoContainer extends Component {
                 try {
                   if (isEmpty(noteText)) return;
                   else if (!isEmpty(subNoteText) || !isEmpty(this.subNoteInputRef.current.value)) {
-                    this.setState({ subNoteTextNotEmpty: true });
-                    return;
+                    // this.setState({ subNoteTextNotEmpty: true });
+                    // return;
+
+                    subNoteList.push({ text: subNoteText, id: shortid.generate() });
+                    this.setState({ subNoteList, subNoteText: "" }, (e) => {
+                      this.subnoteInputRef.current.value = "";
+                    });
                   }
                 } catch (err) {}
                 await this.addNote({ text: noteText, subnotes: subNoteList }, this.textAreaRef);
