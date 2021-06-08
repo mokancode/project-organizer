@@ -1,0 +1,81 @@
+.tickIconSVG {
+    /* border: 1px solid red; */
+    transform: scale(1, 1.2) translateY(5px);
+    /* border: 1px solid blue; */
+    filter: 
+    /* drop-shadow(0 0 30px rgba(0, 0, 0, 0.9)) */
+    /* drop-shadow(0px 0 20px rgba(108, 108, 108, 0.1)) */
+    drop-shadow(1px 0 2px rgba(120, 120, 120, 0))
+    drop-shadow(0px 1.5px 2px rgb(220, 220, 220))
+    drop-shadow(0px 0px 3px rgba(193, 193, 193, 0))
+    ;
+    transition: 0.2s, 1s stroke-dashoffset;
+    /* stroke-dasharray: 500;
+    stroke-dashoffset: 500; */
+}
+
+.tickIconSVGClickable {
+    filter: 
+    /* drop-shadow(0 0 30px rgba(0, 0, 0, 0.9)) */
+    /* drop-shadow(0px 0 20px rgba(0, 0, 0, 0.1)) */
+    drop-shadow(1px 0 2px rgb(60, 122, 43, 0))
+    drop-shadow(0px 1.5px 2px rgb(93, 245, 124))
+    drop-shadow(0px 0px 3px rgba(184, 67, 67, 0.0))
+    ;    
+    stroke-dasharray: 1250;
+    stroke-dashoffset: 0;
+}
+
+@keyframes tickIconAnim {
+    0% {
+        stroke-dasharray: 1250;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dasharray: 900;
+        stroke-dashoffset: 900;
+    }
+    100% {
+        stroke-dasharray: 1250;
+        stroke-dashoffset: 2500;
+    }
+}
+
+.tickIconSVG {
+    
+}
+
+.tickIconSVG:hover {
+    filter: 
+    /* drop-shadow(0 0 30px rgba(0, 0, 0, 0.9)) */
+    /* drop-shadow(0px 0 20px rgba(0, 0, 0, 0.1)) */
+    drop-shadow(0px 0 2px rgb(122, 43, 43))
+    drop-shadow(0px 0 1px rgba(255, 255, 255, 0.9))
+    drop-shadow(0px 1.5px 2px rgb(106, 245, 93, 0.5))
+    drop-shadow(0px 0px 3px rgba(175, 175, 175, 0.7));
+}
+
+
+.tickIconSVGClickable:hover {
+    animation: 1s tickIconAnim ease-out forwards;
+    filter: 
+    /* drop-shadow(0 0 30px rgba(0, 0, 0, 0.9)) */
+    /* drop-shadow(0px 0 20px rgba(0, 0, 0, 0.1)) */
+    drop-shadow(0px 0 2px rgb(122, 43, 43))
+    drop-shadow(0px 0 1px rgba(93, 247, 124, 0.9))
+    drop-shadow(0px 1.5px 2px rgb(106, 245, 93, 0.5))
+    drop-shadow(0px 0px 3px rgba(67, 184, 75, 0.7));
+}
+
+.tickIconSVG .tickIconPath0 {
+    fill:transparent;
+    stroke:rgb(248, 248, 248);
+    stroke-width:15;
+    stroke-miterlimit:10;
+    stroke-linecap: round;
+    /* display: none; */
+}
+
+.tickIconSVGClickable .tickIconPath0 {
+    stroke:greenyellow;
+}

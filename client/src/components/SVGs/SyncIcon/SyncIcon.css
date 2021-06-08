@@ -1,0 +1,49 @@
+.syncIconSVG {
+    width: 20px;
+    height: 20px;
+    /* border: 1px solid white; */
+    margin-right: 10px;
+    margin-top: 0px;
+    /* animation: 1s infinite linear rotateSync; */
+    transition: .2s;
+    transform: rotate(10deg);
+    cursor: not-allowed;
+}
+
+.syncIconSVG.animate {
+    filter: 
+    drop-shadow(0 0 2px cyan)
+    drop-shadow(0 0 10px cyan)
+    drop-shadow(0 0 20px cyan)
+    ;
+    animation: 1s infinite linear rotateSync;
+}
+
+@keyframes rotateSync {
+    from {
+        transform: rotate(10deg);
+    }
+    to {
+        transform: rotate(190deg);
+    }
+}
+
+.syncIconPath0 {
+    fill:none;
+    stroke:rgb(182, 193, 207);
+    stroke-width:40;
+    stroke-miterlimit:10;
+}
+
+.syncBtn.syncAvailable .syncIconPath0 {
+    stroke: cyan;
+}
+
+.syncBtn.syncAvailable .syncIconSVG:hover {
+    filter: 
+    drop-shadow(0 0 2px cyan)
+    drop-shadow(0 0 10px cyan)
+    drop-shadow(0 0 20px cyan)
+    ;
+    cursor: pointer;
+}

@@ -1,0 +1,436 @@
+.editNoteWrapperDiv {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    top: 0px;
+    left: 0px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: 1s fadeInBlackScreen forwards;
+    overflow: auto;
+    /* padding-top: 50px; */
+    /* padding-bottom: 100px; */
+    /* border: 2px solid yellow; */
+}
+
+.editNoteWrapperDivClose {
+    animation: 1s fadeOutBlackScreen forwards;
+}
+
+@keyframes fadeInBlackScreen {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutBlackScreen {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.editNoteBtnsDiv {
+    display: flex;
+    margin-top: 0px;
+    /* border: 3px solid tomato; */
+}
+
+/* ABeeZee|Allura|Italiana|Montserrat|Philosopher|Playball|Poiret+One|Quicksand|Sofia */
+.editNoteBtnsDiv button {
+    /* display: none !important; */
+    /* content: ""; */
+    font-weight: lighter;
+    font-family: Italiana;
+    margin-left: 10px;
+    cursor: pointer;
+    background: none;
+    outline: none;
+    border: none;
+    font-weight: bolder;
+    margin-right: 10px;
+    padding: 0px;
+    font-size: 40px;
+    color: rgb(96, 255, 244);
+    text-shadow: 
+    2px 0 2px rgb(255, 133, 133)
+    , 2px 0 2px rgb(27, 74, 50)
+    , -2px 0 1px rgb(63, 169, 72)
+    , 0px 2px 1px rgba(29, 160, 55, 0.99)
+    , 0px 0px 10px rgba(39, 19, 255, 0.8)
+    ;
+    transition: 0.5s;
+    
+}
+
+.editNoteDiv {
+    min-width: 50%;
+    margin-left: 20px;
+    background: linear-gradient(rgb(2, 5, 23) 50%, rgb(184, 67, 67) 200%);
+    padding: 0px 5px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+
+    box-shadow:  
+    0 0 30px 2px rgba(0, 0, 0, 0.99)
+    , 0px 0 20px 0 rgba(0, 0, 0, 0.8)
+    , 1px 0 2px 0 rgb(122, 43, 43)
+    , -2px 0 1px 0 rgb(247, 93, 93)
+    , 0px 1.5px 2px 2px rgb(245, 93, 93)
+    , 0px 0px 3px 1px rgba(184, 67, 67, 0.7)
+    ;
+
+    /* box-shadow:  
+    0 0 30px 2px rgba(0, 0, 0, 0.99)
+    , 0px 0 20px 0 rgba(0, 0, 0, 0.8)
+    , 1px 0 2px 0 rgb(94, 94, 94)
+    , -2px 0 1px 0 rgb(139, 142, 139)
+    , 0px 1.5px 2px 2px rgb(195, 221, 231)
+    , 0px 0px 3px 1px rgba(251, 251, 251, 0.7)
+    ; */
+    
+    /* opacity: 0; */
+    transform: translateY(10px);
+    transition: 1.5s ease-in-out, 0.3s box-shadow;
+    /* max-width: 400px; */
+    animation: 1s slideInFromBottom forwards;
+    /* border: 3px solid violet; */
+}
+
+@media screen and (max-width: 420px) {
+    .editNoteWrapperDiv {
+        padding-right: 20px !important;
+        padding: unset !important;
+    }
+    
+    .editNoteDiv {
+        margin-right: 15px;
+    }    
+
+    .editNoteBtnsDiv button {
+        font-size: 35px;
+    }
+
+    .editNoteWrapperDiv .tickIconSVG {
+        width: 27px;
+    }
+    
+    .editNoteWrapperDiv .cancelIconSVG {
+        width: 25px;
+    }
+    
+    .editNoteWrapperDiv .addSubNoteWrapperDiv ol li .subnoteItemWrapper .subnoteButtons {
+        /* width: 50px; */
+        /* margin-left: 10px; */
+        /* border: 2px solid yellow; */
+        /* padding-right: 5px; */
+    }
+    
+    .editNoteWrapperDiv .trashcanIconSVG {
+        width: 25px;
+    }
+
+    .editNoteWrapperDiv .addSubNoteWrapperDiv ol {
+        /* border: 2px solid green; */
+        /* width: 100%; */
+    }
+
+    .editNoteWrapperDiv .addSubNoteWrapperDiv ol li .subnoteItemWrapper {
+        /* padding-left: 0px !important; */
+        /* border: 2px solid yellow; */
+        /* margin: 0px !important; */
+        width: 90% !important;
+    }
+    
+    .editNoteWrapperDiv .addSubNoteWrapperDiv ol li .subnoteItemWrapper .subnoteEditDiv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+                            
+}
+
+.editNoteDivClose {
+    animation: 1s slideOutFromBottom forwards;
+}
+
+@keyframes slideInFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes slideOutFromBottom {
+    0% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+.editNoteDiv:hover {
+    transition: 1.5s ease-in-out, 0.3s box-shadow;
+
+    box-shadow:  
+    0 0 30px 2px rgba(0, 0, 0, 0.99)
+    , 0px 0 20px 0 rgba(0, 0, 0, 0.8)
+    , 1px 0 2px 0 rgb(199, 69, 69)
+    , -2px 0 1px 0 rgb(247, 93, 93)
+    , 0px 1.5px 2px 2px rgb(255, 144, 144)
+    , 0px 0px 3px 1px rgba(241, 90, 90, 0.7)
+    ;
+    
+    /* box-shadow:  
+    0 0 30px 2px rgba(0, 0, 0, 0.99)
+    , 0px 0 20px 0 rgba(0, 0, 0, 0.8)
+    , 1px 0 2px 0 rgb(255, 255, 255)
+    , -2px 0 1px 0 rgb(255, 255, 255)
+    , 0px 1.5px 2px 2px rgb(217, 244, 255)
+    , 0px 0px 3px 1px rgba(251, 251, 251, 0.7)
+    ; */
+}
+
+.editNoteDiv p {
+    color: white;
+}
+
+/* .editNoteDivShow {
+    opacity: 1;
+    transform: unset;
+} */
+
+.editNoteDiv .miniWorkItemlogoDiv {
+    cursor: pointer;
+}
+
+.editNoteDiv .miniWorkItemlogoDiv * {
+    cursor: pointer;
+}
+
+/* ABeeZee|Allura|Italiana|Montserrat|Philosopher|Playball|Poiret+One|Quicksand|Sofia */
+.editNoteDiv  .miniWorkDescription {
+    font-family: Poiret One;
+    font-weight: bold;
+    /* text-transform: uppercase; */
+    color: rgb(121, 123, 125);
+    width: 100%;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+}
+
+.editNoteWrapperDiv .addSubNoteWrapperDiv {
+    margin-top: 10px;
+    overflow: visible;
+}
+
+.editNoteWrapperDiv .addSubNoteWrapperDiv .addSubNoteDiv {
+    margin-left: 30px;
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+    top: unset;
+    animation: none;
+    padding-right: 100px;
+    padding-bottom: 10px;
+    /* border: 1px solid greenyellow; */
+}
+
+.editNoteWrapperDiv .addSubNoteWrapperDiv .addSubNoteDiv input {
+    width: 70%;
+}
+
+.editNoteWrapperDiv .addSubNoteWrapperDiv ol {
+    color: white;
+    /* border-left: 1px dashed rgb(130, 130, 218); */
+    margin-left: 0px;
+    padding-left: 10px;
+    /* border: 1px solid greenyellow; */
+    overflow-y: auto;
+    max-height: 60vh;
+}
+
+.editNoteWrapperDiv .addSubNoteWrapperDiv ol::before {
+    left: 0px;
+    top: -10px;
+    width: 1.5px;
+}
+
+.editNoteWrapperDiv .addSubNoteWrapperDiv ol li {
+    /* border: 1px solid blue; */
+    margin-left: 20px;
+    list-style-type: disc;
+    color: rgb(143, 206, 245);
+}
+
+.editNoteWrapperDiv .addSubNoteWrapperDiv ol li .subnoteItemWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 20px;
+    padding-left: 15px;
+    border-radius: 5px;
+    margin-left: -2px;
+    /* marginl */
+    padding-top:0px;
+    padding-bottom: 0px;
+    width: calc(100% - 30px);
+    max-width: 80vw;
+    /* border: 1px solid red; */
+    transition: .2s;
+    /* background: linear-gradient(to left, rgba(128, 30, 0, 0.0), rgba(128, 30, 0, 0.0)); */
+}
+
+.editNoteWrapperDiv .addSubNoteWrapperDiv ol li .subnoteItemWrapper:hover {
+    background-color: rgba(128, 30, 0, 0.3);
+    /* background: linear-gradient(to left, rgba(128, 30, 0, 0.2), rgba(128, 30, 0, 0.5)); */   
+}
+
+.editNoteWrapperDiv .addSubNoteWrapperDiv ol li .subnoteItemWrapper .subnoteItemDiv {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    word-break: break-all;
+}
+
+.editNoteWrapperDiv .addSubNoteWrapperDiv ol li .subnoteItemWrapper .subnoteButtons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* border: 2px solid yellow; */
+}
+
+.subnoteEditDiv {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    /* border: 1px solid red; */
+}
+
+.subnoteEditDiv textarea {
+    margin-left: 0px;
+    max-width: 100%;
+    /* width: 100%; */
+}
+
+.pencilIconSVG {
+
+}
+
+.removeSubnoteBtn {
+    cursor: pointer;
+    width: 23px;
+    /* border: 1px solid white; */
+}
+
+.editNoteWrapperDiv textarea {
+    background: linear-gradient(rgb(81, 84, 94), rgb(49, 48, 54));
+    border: none;
+    color: white;
+    border-radius: 10px;
+    min-height: 50px;
+    /* border: 2px solid red; */
+}
+
+/* ///////////////// */
+
+.subnoteItemWrapper .pencilIconSVG {
+    /* fill: none; */
+    filter: 
+    /* drop-shadow(0 0 30px rgba(0, 0, 0, 0.9)) */
+    /* drop-shadow(0px 0 20px rgba(0, 0, 0, 0.1)) */
+    drop-shadow(1px 0 2px rgb(122, 43, 43))
+    /* drop-shadow(-2px 0 1px rgb(247, 93, 93)) */
+    drop-shadow(0px 1.5px 2px rgb(245, 93, 93))
+    drop-shadow(0px 0px 3px rgba(184, 67, 67, 0.7))
+
+    /* drop-shadow(0 2px rgb(255, 133, 133))
+    drop-shadow(2px 0 2px rgb(27, 74, 50))
+    drop-shadow(-2px 0 1px rgb(63, 169, 72))
+    drop-shadow(0px 2px 1px rgba(29, 160, 55, 0.99))
+    drop-shadow(0px 0px 10px rgba(39, 19, 255, 0.8)) */
+    ;
+}
+
+.subnoteItemWrapper .pencilIconSVG:hover {
+    filter: 
+    drop-shadow(0 0 30px rgba(0, 0, 0, 0.9))
+    drop-shadow(0px 0 20px rgba(0, 0, 0, 0.1))
+    drop-shadow(0px 0 2px rgb(122, 43, 43))
+    drop-shadow(0px 0 1px rgb(247, 93, 93, 0.9))
+    drop-shadow(0px 1.5px 2px rgb(245, 93, 93))
+    drop-shadow(0px 0px 3px rgba(184, 67, 67, 0.7));
+}
+
+.subnoteItemWrapper .pencilIconSVG #cap {
+    transition: 0.2s;
+    transform: translateY(-50px);
+}
+.subnoteItemWrapper .pencilIconSVG:hover #cap {
+    /* display: none; */
+    transform: rotate(-10deg) translateX(-50px) translateY(-50px);
+}
+
+.subnoteItemWrapper .pencilIconSVG #cap path:nth-child(1) {
+    stroke-width: 60;
+}
+
+.subnoteItemWrapper .pencilIconSVG #cap path:nth-child(2) {
+    stroke-width: 30;
+}
+
+.subnoteItemWrapper .pencilIconPath0 {
+    fill:transparent;
+    stroke:greenyellow;
+    stroke-width:20;
+    stroke-miterlimit:10;
+    stroke-linecap: round;
+}
+
+.editSubNoteBtnDiv {
+    height: 40px;
+    width: 9px;
+    transform: rotate(20deg);
+    margin-right: 20px;
+    margin-left: 17px;
+    cursor: pointer;
+    /* border: 1px solid red; */
+}
+
+.confirmEditNoteBtnUnclickable {
+    color: rgb(118, 117, 117) !important;
+    text-shadow: 
+    -2px 1px 2px rgb(86, 241, 231)
+    , 2px 0 2px rgb(27, 74, 50)
+    , -2px 0 1px rgb(146, 159, 147)
+    , 0px 2px 1px rgba(29, 160, 55, 0.99)
+    , 0px 0px 10px rgba(39, 19, 255, 0.8)
+    !important;
+}
+
+/* Edit note item styles */
+
+.confirmEditSubnote {
+    /* border: 2px solid red; */
+    transform: unset;
+    width: 30px;
+    height: 40px;
+}

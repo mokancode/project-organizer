@@ -1,0 +1,55 @@
+.cloudIconSVG {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    margin-top: 0px;
+    transition: .2s;
+}
+
+.cloudIconSVG.animate {
+    animation: 1s animateCloud ease-in-out;
+}
+
+@keyframes animateCloud {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        filter: 
+        drop-shadow(0 0 2px cyan)
+        drop-shadow(0 0 10px cyan)
+        drop-shadow(0 0 20px cyan)
+        ;
+        transform: translateY(-3px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.cloudIconPath0 {
+    /* fill:none;
+    stroke:#000000;
+    stroke-width:42;
+    stroke-miterlimit:10; */
+    
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    fill:none;
+    stroke: cyan;
+    stroke-width:42;
+    stroke-miterlimit:10;
+}
+.cloudIconPath1 {
+    /* fill:none;
+    stroke:#000000;
+    stroke-width:32;
+    stroke-miterlimit:10; */
+    
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    fill:none;
+    stroke: cyan;
+    stroke-width:42;
+    stroke-miterlimit:10;
+}

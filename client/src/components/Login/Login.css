@@ -1,0 +1,484 @@
+.loginDiv {
+  position: absolute;
+  top: 0px;
+  right: 100px;
+  /* border: 1px solid red; */
+}
+
+.loginFormWrapper {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+
+  width: 300px;
+  background: radial-gradient(rgb(30, 110, 110), rgb(8, 4, 20));
+  box-shadow: 0 0 20px black;
+
+  /* display: none; */
+  transform: translateY(20px);
+  transition: 0.3s;
+  pointer-events: none;
+  opacity: 0;
+  padding-bottom: 30px;
+  /* border: 2px solid red;     */
+}
+
+.loginFormWrapper::before {
+  position: absolute;
+  content: "";
+  left: -5px;
+  width: 5px;
+  height: 100%;
+  /* background: linear-gradient(rgb(5, 73, 47), rgb(26, 182, 130)); */
+  background: linear-gradient(to top, rgb(95, 44, 8), chocolate, rgb(5, 73, 47), rgb(26, 182, 130));
+  transition: 0.5s;
+  background-size: 300% 300%;
+  background-position-y: 100%;
+  box-shadow: 0 0 20px 0 black;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.loginFormWrapper::after {
+  position: absolute;
+  content: "";
+  right: -5px;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(to top, rgb(95, 44, 8), chocolate, rgb(5, 73, 47), rgb(26, 182, 130));
+  background-size: 300% 300%;
+  transition: 0.5s;
+  background-position-y: 100%;
+
+  box-shadow: 0 0 20px 0 black;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.loginFormWrapper.isLoginForm::before,
+.loginFormWrapper.isLoginForm::after {
+  background-position-y: 0%;
+}
+
+.loginHeadersWrapper {
+  width: 200px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid red; */
+}
+
+.loginFormWrapper .loginHeader {
+  color: rgb(108, 255, 174);
+  text-shadow: -1px 1px 2px rgb(78, 243, 255) /* , -1px 1px 10px rgb(78, 243, 255) */ /* , -1px 1px 10px rgb(78, 243, 255) */
+      /* , -2px 1px 2px rgb(255, 36, 7) */,
+    1.5px 1.5px 2px rgb(255, 7, 181);
+  /* font-size: 20px; */
+  opacity: 0;
+  position: absolute;
+}
+
+.loginFormWrapper .loginHeader:nth-child(2) {
+  opacity: 0;
+}
+
+.loginFormWrapper .loginHeader.enter {
+  animation: 0.5s revealLoginHeader forwards;
+}
+
+.loginFormWrapper .loginHeader.leave {
+  animation: 0.5s hideLoginHeader forwards;
+}
+
+@keyframes revealLoginHeader {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes hideLoginHeader {
+  from {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+}
+
+.loginFormWrapper.show {
+  pointer-events: all;
+  transform: translateY(10px);
+  opacity: 1;
+}
+
+.loginFormElements {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 0;
+  /* border: 1px solid black; */
+}
+
+.loginFormElements input {
+  background: linear-gradient(rgb(93, 153, 138), rgb(169, 253, 214));
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  color: black;
+  font-weight: bold;
+  outline: none;
+  border: 1px solid rgb(122, 101, 180);
+  border-radius: 10px;
+}
+
+.loginFormElements input::placeholder {
+  color: rgb(83, 83, 83);
+  /* font-weight: normal; */
+}
+
+.loginFormElements input[name="registerEmail"],
+.loginFormElements input[name="registerPassword2"] {
+  transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  /* transform: scaleY(0); */
+  max-height: 30px;
+  margin-bottom: 10px;
+}
+
+.loginFormWrapper.isLoginForm .loginFormElements input[name="registerEmail"],
+.loginFormWrapper.isLoginForm .loginFormElements input[name="registerPassword2"] {
+  max-height: 0px;
+  padding: 0px;
+  border: unset;
+  margin-bottom: 0px;
+}
+
+/* ABeeZee|Allura|Italiana|Montserrat|Philosopher|Playball|Poiret+One|Quicksand|Sofia */
+.loginFormBtn {
+  margin-top: 20px;
+  border: none;
+  background: radial-gradient(rgb(18, 116, 83), rgb(3, 44, 28));
+  padding: 10px 30px;
+  font-size: 20px;
+  color: rgb(108, 255, 174);
+  border-radius: 5px;
+  border: 1px solid rgb(0, 36, 9);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: 0.2s;
+  outline: none;
+  font-family: Poiret One;
+  font-weight: lighter;
+}
+
+.loginFormBtn:hover,
+.loginFormBtn:focus {
+  /* text-shadow: 0 0 10px green; */
+  filter: brightness(130%);
+  color: rgb(98, 228, 157);
+}
+
+.loginFormWrapper .toggleFormTypeBtn {
+  color: rgb(108, 255, 174);
+  text-shadow: -1px 1px 2px rgb(78, 243, 255) /* , -1px 1px 10px rgb(78, 243, 255) */ /* , -1px 1px 10px rgb(78, 243, 255) */
+      /* , -2px 1px 2px rgb(255, 36, 7) */,
+    1.5px 1.5px 2px rgb(255, 7, 181);
+  background: none;
+  border: none;
+  outline: none;
+  position: absolute;
+  bottom: 5px;
+  /* left: 10px; */
+  cursor: pointer;
+}
+
+.closeLoginBtn {
+  color: rgb(108, 255, 174);
+  text-shadow: -1px 1px 2px rgb(78, 243, 255) /* , -1px 1px 10px rgb(78, 243, 255) */ /* , -1px 1px 10px rgb(78, 243, 255) */
+      /* , -2px 1px 2px rgb(255, 36, 7) */,
+    1.5px 1.5px 2px rgb(255, 7, 181);
+  background: none;
+  border: none;
+  outline: none;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+  /* display: none; */
+  transition: 0.5s;
+  transform-origin: bottom;
+  transform: scale(1.5, 1);
+}
+
+.closeLoginBtn:hover {
+  transition: 0.2s;
+  /* text-shadow: 
+    -1px 1px 2px rgb(78, 243, 255)
+    , -1px 1px 10px rgb(78, 243, 255)
+    , -1px 1px 10px rgb(78, 243, 255)
+    , -1px 1px 10px rgb(78, 243, 255)
+    , 1.5px 1.5px 2px rgb(255, 7, 181)
+    ; */
+  transform: scale(2, 1.5);
+  filter: drop-shadow(0 0 2px cyan) drop-shadow(0 0 10px cyan) drop-shadow(0 0 20px cyan) drop-shadow(0 0 20px cyan)
+    drop-shadow(1px 1px 2px rgb(255, 7, 181));
+}
+
+.loginBtn {
+  cursor: pointer;
+  color: rgb(255, 206, 132);
+  margin-top: 10px;
+  filter: drop-shadow(0 0 2px rgb(255, 162, 68));
+}
+
+.loggedInWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.displayName {
+  color: rgb(109, 255, 255);
+  text-shadow: 0 0 2px cyan, 0 0 2px cyan;
+  margin-top: 10px;
+}
+
+.loginButtons {
+  display: flex;
+  align-items: center;
+  /* border: 3px solid red; */
+}
+
+.logoutButton {
+  margin-left: 10px;
+  width: 8px;
+  height: 15px;
+  border: 1.6px solid cyan;
+  border-right: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  overflow: visible;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.logoutButton:hover {
+  filter: drop-shadow(0 0 2px cyan) drop-shadow(0 0 10px cyan) drop-shadow(0 0 20px cyan);
+}
+
+.logoutButton .exitArrow {
+  width: 10px;
+  height: 2px;
+  background-color: cyan;
+  margin-left: 10px;
+  position: absolute;
+}
+
+.logoutButton .exitArrow::before {
+  position: absolute;
+  content: "";
+  border-top: 2px solid cyan;
+  border-right: 2px solid cyan;
+  width: 7px;
+  height: 7px;
+  transform: rotate(45deg);
+  right: 0px;
+  margin-top: -3px;
+}
+
+.syncBtn {
+  position: relative;
+}
+
+.syncMessageWrapper {
+  overflow: hidden;
+  margin-right: 4px;
+  /* border: 1px solid white; */
+}
+
+.syncMessage {
+  color: orange;
+  text-shadow: 0 0 2px chocolate, 0 0 2px chocolate;
+  margin-top: 10px;
+  /* transform: translateX(100%); */
+  transition: 0.5s;
+  /* animation: 3s syncMsgRevealAnim forwards; */
+}
+
+.syncMessage.animate {
+  animation: 8s syncMsgRevealAnim forwards;
+}
+
+@keyframes syncMsgRevealAnim {
+  0% {
+    transform: translateX(100%);
+  }
+  10% {
+    transform: translateX(0%);
+    padding-right: 10px;
+  }
+  90% {
+    transform: translateX(0%);
+    padding-right: 10px;
+  }
+  100% {
+    padding-right: 10px;
+    transform: translateY(-150%);
+  }
+}
+
+.loginErrorMsg {
+  margin: 0px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+
+  /* color: rgb(108, 255, 174);
+    text-shadow: 
+    -1px 1px 2px rgb(78, 243, 255)
+    , 1.5px 1.5px 2px rgb(255, 7, 181)
+    ; */
+
+  color: rgb(255, 190, 51);
+  text-shadow: -0.5px 0.5px 2px rgb(255, 193, 78), 1px 1px 2px rgb(137, 25, 182);
+  transition: 1s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  max-height: 0px;
+  overflow: hidden;
+  max-width: 90%;
+  word-wrap: break-word;
+  text-align: center;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.loginErrorMsg.show {
+  max-height: 100px;
+}
+
+.loginErrorMsg.loginOrRegistrationError.show {
+  margin-top: 20px;
+}
+
+.loginErrorMsg.loginOrRegistrationError.registrationSuccessful.show {
+  color: rgb(66, 255, 167);
+}
+
+.progressBar {
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  bottom: -2px;
+  left: 0px;
+  background-color: rgb(7, 3, 41);
+  overflow: hidden;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transition: 0.2s;
+  transform-origin: top;
+  transform: scaleY(0);
+}
+
+.progressBar::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent 0%, rgb(22, 66, 209) 50%, transparent 100%);
+  transform: translateX(-100%);
+}
+
+.progressBar.active {
+  transform: unset;
+}
+
+.progressBar.active::before {
+  animation: 1s progressBarAnim infinite linear;
+}
+@keyframes progressBarAnim {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(200%);
+  }
+}
+
+/* .debuggingBtn {
+    position: absolute;
+    left: -500px;
+    width: fit-content;
+    height: 100%;
+    border: 2px solid white;
+    color: black;
+    padding: 0px 20px;
+    background: linear-gradient(to top, white, grey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+} */
+
+.googleLoginWrapper {
+  /* border: 2px solid white; */
+  margin-bottom: 20px;
+}
+
+.googleLoginBtnWrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.googleLoginWrapper .loginFormBtn {
+  padding-left: 50px;
+  margin: 0px;
+}
+
+.googleLoginWrapper img {
+  position: absolute;
+  left: 15px;
+  width: 20px;
+  height: auto;
+  z-index: 3;
+  /* border: 1px solid red; */
+}
+
+#or {
+  color: rgb(91, 214, 146);
+  font-weight: lighter;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+#or::before,
+#or::after {
+  position: absolute;
+  content: "";
+  width: 50px;
+  height: 1px;
+}
+
+#or::before {
+  background: linear-gradient(to left, rgb(91, 214, 146), transparent);
+  right: 30px;
+}
+#or::after {
+  background: linear-gradient(to right, rgb(91, 214, 146), transparent);
+  left: 30px;
+}

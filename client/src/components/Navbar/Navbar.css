@@ -1,0 +1,857 @@
+.navbarDiv {
+    position: fixed;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    transform: translateX(-100%);
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
+    justify-content: flex-start;
+    /* background-color: rgba(0, 0, 0, 0.85); */
+    /* background-color: rgba(0, 0, 0, 1); */
+    background: radial-gradient(rgb(16, 22, 31), rgb(0, 0, 0));
+    transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.1), 1s left cubic-bezier(0.175, 0.885, 0.32, 1.1) 0.3s, 1s box-shadow 0.5s;
+    z-index: 2;
+    /* border: 2px solid red; */
+}
+
+.closeNavbarBtn {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+    /* border: 2px solid red; */
+    /* display: none !important; */
+}
+
+.navbarDivOpen .closeNavbarBtn {
+    pointer-events: all;
+}
+
+.navbarDivWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    z-index: 2;
+    /* border: 2px solid red; */
+    padding-top: 20px;
+}
+
+.navbarDivOpen {
+    transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1);
+    box-shadow: 2px 0 30px 0 black;
+    transform: unset;
+}
+
+.navbarDivInnerProjects,
+.navbarDivInnerCategories {
+    overflow: hidden;
+    /* height: 200px; */
+    /* border: 1px solid red; */
+}
+
+.navbarDivInnerProjects {
+    padding-top: 30px;
+    /* height: 110px; */
+    /* border: 2px solid greenyellow; */
+}
+
+.navbarDivInnerCategories {
+    padding-top: 30px;
+    margin-top: -30px;
+    /* height: 160px; */
+    /* border: 2px solid indigo; */
+}
+
+.navbarOpenBtnDiv {
+    z-index: 3;
+    position: absolute;
+    top: 10px;
+    right: -45px;
+    width: 41px;
+    height: 41px;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 20px 0px black, 0 0 5px 1px black;
+    border: .5px solid rgb(59, 190, 255);
+
+    box-shadow: 
+    0 0 10px 0 rgba(70, 67, 255, 0.6)
+    , inset 0 0 10px 0 rgba(55, 75, 255, 0.6)
+    ;
+    
+    padding: 10px;
+    border-radius: 100px;
+    transition: .5s, 0.5s left 1s;
+    /* border: 1px solid green !important; */
+}
+
+.navbarOpenBtnDiv:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    /* box-shadow: 0 0 20px 0 cyan; */
+    
+    /* box-shadow: 
+    0 0 10px 0px rgba(0, 255, 255, 0.5)
+    , 0 0 5px 1px black
+    , inset 0 0 10px 0px rgb(59,190, 255, 0.6)
+    ; */
+
+    box-shadow: 
+    0 0 10px 0 rgba(70, 67, 255, 0.99)
+    , 0 0 10px 0 rgba(70, 67, 255, 0.99)
+    , inset 0 0 10px 0 rgba(55, 75, 255, 0.99)
+    ;
+    
+    /* box-shadow: 
+    0 0 20px 0px black
+    , 0 0 5px 1px black
+    , inset 0 0 10px 0px rgb(59,190, 255, 0.5)
+    ; */
+}
+
+.navbarOpen {
+    background-color: rgba(0, 0, 0, 0.0);
+    box-shadow: 0 0 5px 0px rgba(54, 104, 174, 0), inset 0 0 5px 0px rgba(54, 104, 174, 0);
+    border: .5px solid rgb(59, 190, 255, 0);
+    transition: .5s;
+    border-radius: 10px;
+    right: 10px;
+}
+
+.navbarOpen:hover {
+    box-shadow: 0 0 5px 0px rgba(54, 104, 174, .99), inset 0 0 5px 0px rgba(54, 104, 174, .99);
+    border: .5px solid rgb(59, 190, 255, 0.5);
+    border-radius: 40px;
+    transition: .5s, 0.5s border-radius 0.1s;
+}
+
+#hamburgerTop,
+#hamburgerBottom {
+    position: absolute;
+    content: "";
+    width: 20px;
+    height: 2.5px;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 2);
+    border-radius: 100px;
+    /* background: linear-gradient(to right, rgb(79, 172, 193), rgb(52, 66, 113)); */
+    background: linear-gradient(to right, rgb(141, 204, 255), rgb(94, 91, 255));
+}
+
+.navbarOpen #hamburgerTop,
+.navbarOpen #hamburgerBottom {
+    transition: 0.4s;
+    /* box-shadow: 0 0 10px 0 cyan; */
+}
+
+#hamburgerTop {
+    top: 10px;
+}
+
+#hamburgerBottom {
+    bottom: 12px;
+}
+
+#hamburgerCenter {
+    border-radius: 100px;
+    position: absolute;
+    /* background: white; */
+    /* background: linear-gradient(to right, rgb(79, 172, 193), rgb(52, 66, 113)); */
+    background: linear-gradient(to right, rgb(141, 204, 255), rgb(94, 91, 255));
+    height: 2.5px;
+    width: 20px;
+    top: 45%;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.02, 1.1);
+}
+
+.navbarOpen #hamburgerCenter {
+    transition: 0.2s;
+}
+
+.navbarOpen #hamburgerCenter {
+    width: 0%;
+}
+
+.navbarOpen #hamburgerTop {
+    top: 13.5px;
+    transform: rotate(-30deg);
+    /* box-shadow: 0 0 5px 0 rgb(0, 101, 223); */
+}
+
+.navbarOpen #hamburgerBottom {
+    bottom: 14.5px;
+    /* box-shadow: 0 0 5px 0 rgb(0, 101, 223); */
+    transform: rotate(30deg) !important;
+}
+
+.navbarOpen:hover #hamburgerBottom,
+.navbarOpen:hover #hamburgerTop {
+    box-shadow: 0 0 5px 1px rgba(37, 134, 253, 0.5);
+}
+
+.categoriesNavigationDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    height: 100%;
+    box-shadow: 0 0 30px 0 rgba(118, 69, 235, 0.4);
+    /* border: 3px solid tomato; */
+}
+
+.categoriesDropdownWrapper {
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    /* border: 2px solid blue; */
+}
+
+.categoriesDropdown {
+    font-size: 20px;
+    /* border: 2px solid red;     */
+}
+
+.removeCategoryDivWrapper, .removeProjectDivWrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.removeCategoryDiv, .removeProjectDiv {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: fit-content;
+    position: relative;
+    overflow: hidden;
+    /* border: 1px solid white; */
+}
+
+.removeCategoryBtn, .removeProjectBtn {
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: rgb(221, 176, 255);
+    text-shadow: 0 0 5px red;
+    transition: 0.1s;
+    cursor: pointer;
+    outline: none;
+}
+
+.removeCategoryBtnConfirm, .removeProjectBtnConfirm {
+    color: red !important;
+    text-shadow: 0 0 5px red !important;
+}
+
+.removeCategoryBtn:hover, .removeProjectBtn:hover {
+    color: white;
+    text-shadow: 0 0 5px white;
+}
+
+.removeCategoryBtnConfirm:hover, .removeProjectBtnConfirm:hover {
+    text-shadow: 
+    0 0 5px red 
+    , 0 0 20px red 
+    !important;
+}
+
+.removeCategoryConfirmParagraph, .removeProjectConfirmParagraph {
+    color: white;
+    transition: 0.4s ease-in-out;
+    position: relative;
+    left: -160px;
+}
+
+.removeCategoryConfirmParagraphShow, .removeProjectConfirmParagraphShow {
+    /* animation: .6s showFromLeft2 forwards ease-in-out; */
+    animation: .6s showFromLeft2 ease-in-out forwards, 0.6s showFromLeft2 2s forwards reverse !important;
+}
+
+.removeCategoryConfirmTimeoutEnded, .removeProjectConfirmTimeoutEnded {
+    /* animation: .6s showFromLeft2 ease-in-out, 0.6s showFromLeft2 2s forwards reverse !important; */
+}
+
+@keyframes showFromLeft2 {
+    0% {
+        left: -160px;
+    }
+    100% {
+        left: 0px;
+    }
+}
+
+.addCategoryDiv {
+    position: relative;
+    width: fit-content;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    display: flex;
+    transform: translateX(-100%);
+    transition: 0.25s ease-in-out;
+    /* border: 1px solid yellow; */
+}
+
+.addCategoryDiv * {
+    flex-shrink: 0;
+}
+
+.addCategoryDivActive .addCategoryDiv {
+    transform: translateX(0%);
+}
+
+.addCategoryInputDiv {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    transition: 0.5s;
+    position: relative;
+    /* border: 1px solid red; */
+}
+
+.newCategoryBtnAnimation {
+    animation: .3s newCategoryBtnAnim linear;
+}
+
+@keyframes newCategoryBtnAnim {
+    0% {
+        text-shadow: none;
+        ;
+    }
+    50% {
+        text-shadow: 0 0 5px white
+        , 0 0 5px white
+        , 0 0 5px white
+        ;
+    }
+    100% {
+        text-shadow: none;
+    }
+}
+
+.openProjectsBtnDiv,
+.openCategoriesBtnDiv {
+    z-index: 1;
+    position: absolute;
+    top: 0px;
+    right: -39px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    /* background: linear-gradient(rgb(59, 85, 179), rgb(50, 41, 99)); */
+    background: radial-gradient(rgb(59, 85, 179), rgb(50, 41, 99));
+    /* box-shadow: 
+    0 0 20px 0px black
+    , 0 0 5px 1px black
+    ; */
+    /* border: 1px solid cyan; */
+    border-left: 1px solid cyan;
+    padding: 10px;
+    /* border-radius: 100px; */
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transition: .5s, 0.5s left 1s;
+    /* border: 1px solid green !important; */
+    box-shadow: 3px 0 10px 0 rgba(0, 0, 0, 0.6);
+}
+
+.openCategoriesBtnDiv {
+    /* background: linear-gradient(rgb(79, 172, 193), rgb(52, 66, 113)); */
+    background: radial-gradient(rgb(65, 118, 197), rgb(26, 46, 112));
+    box-shadow: 3px 0 10px 0 rgba(0, 0, 0, 0.6), inset -3px 3px 10px 0 rgba(0, 0, 0, 0.1);
+    /* border-top: 1px solid rgb(39, 139, 189);
+    border-bottom: 1px solid rgb(9, 41, 57);
+    top: -1px;
+    height: 19px; */
+}
+
+.openProjectsBtnDiv:hover {
+    /* box-shadow: 
+    0 0 20px 0px black
+    , 0 0 5px 1px black
+    , inset 0 0 10px 0px rgb(59, 190, 255, 0.5)
+    ; */
+}
+
+.navbarDivOpen .openProjectsBtnDiv,
+.navbarDivOpen .openCategoriesBtnDiv {
+    /* display: none; */
+    right: 20px;
+    box-shadow: none;
+}
+
+.openProjectsBtnDiv:hover #projectBtnParagraph, .openCategoriesBtnDiv:hover #categoryBtnParagraph {
+    text-shadow: 0 0 5px cyan, 0 0 2px cyan;
+}
+
+#projectBtnParagraph,
+#categoryBtnParagraph {
+    position: absolute;
+    top: -31px;
+    left: 12.5px;
+    font-size: 30px;
+    color: cyan;
+    text-shadow: 0 0 5px rgb(185, 139, 255);
+    transition: 0.2s;
+}
+
+#categoryBtnParagraph {
+    left: 10px;
+}
+
+.projectsNavigationDiv {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    box-shadow: 0 0 30px 0 rgba(118, 69, 235, 0.4);
+    /* border: 3px solid tomato; */
+}
+
+.projectsNavigationDiv::before
+, .categoriesNavigationDiv::before 
+{
+    position: absolute;
+    content: "";
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(51, 36, 80);
+    /* box-shadow: 0 0 5px rgb(34, 32, 66); */
+}
+
+.projectsNavigationDiv::after
+, .categoriesNavigationDiv::after 
+{
+    position: absolute;
+    content: "";
+    top: 0px;
+    left: 0%;
+    width: 100%;
+    height: 1.5px;
+    /* background: linear-gradient(to right, transparent, rgb(67, 45, 192), transparent); */
+    background: linear-gradient(to right,
+    transparent,
+    rgb(121, 97, 255),
+    transparent,
+    transparent,
+    rgb(67, 45, 192),
+    transparent
+    );
+
+    transition-duration: .3s;
+    background-size: 300% 300%;
+    background-position-x: 98%;
+    /* box-shadow: 0 0 5px rgb(34, 32, 66); */
+
+    /* border: 1px solid red; */
+}
+
+.categoriesNavigationDiv.addCategoryDivActive::after, .projectsNavigationDiv.addProjectDivActive::after {
+    background-position-x: 155%;
+    /* background-position-x: 5%; */
+}
+
+.addProjectDiv {
+    position: relative;
+    width: fit-content;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding-bottom: 0px;
+    transform: translateX(-100%);
+    transition: 0.25s ease-in-out;
+    /* border: 3px solid yellow; */
+}
+
+.addProjectDiv * {
+    flex-shrink: 0;
+}
+
+.addProjectDivActive .addProjectDiv {
+    transform: unset;
+}
+
+.projectsDropdown,
+.categoriesDropdown {
+    display: flex;
+    height: 40px;
+    min-width: 100px;
+    font-size: 22px;
+    color: rgb(72, 172, 243);
+    text-shadow: 0 0 10px rgb(31, 100, 169);
+    background-color: rgb(32, 30, 63);
+    /* box-shadow: 0 0 30px 0 rgba(118, 69, 235, 0.4); */
+    /* box-shadow: inset 0 0px 5px 0 rgba(0, 0, 0, 0.7); */
+    
+    border: none;
+    outline: none;
+    width: 100%;
+    position: relative;
+}
+
+.projectsDropdown,
+.categoriesDropdown {
+    z-index: 3;
+    color: cyan;
+    left: 0px;
+    /* z-index: 3; */
+}
+
+.projectsDropdownBtnDiv,
+.categoriesDropdownBtnDiv {
+    /* display: none; */
+    position: relative;
+    transition: 0.5s ease-in-out;
+    user-select: none;
+    left: 0px;
+    /* border: 2px solid red !important; */
+}
+
+.categoriesDropdownBtnDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.projectsDropdownBtnDiv {
+    /* border: 2px solid red; */
+    padding: 0px !important;
+    margin: 0px !important;
+    top: 0px !important;
+}
+
+.openProjectsList,
+.openCategoriesList {
+    left: 298px;
+}
+
+.projectsDropdown option, .categoriesDropdown option {
+    background-color: rgb(36, 27, 116);
+}
+
+.categoriesDropdown option::selection {
+    background-color: rgb(34, 15, 88);
+}
+
+.categoriesDropdown select option:hover,
+.categoriesDropdown select option:focus,
+.categoriesDropdown select option:active {
+    background: linear-gradient(#000000, #000000);
+    background-color: #000000 !important; /* for IE */
+    color: #ffed00 !important;
+}
+
+.categoriesDropdown select option:checked {
+    background: linear-gradient(#d6d6d6, #d6d6d6);
+    background-color: #d6d6d6 !important; /* for IE */
+    color: #000000 !important;
+}
+
+.newProjectBtnDiv, .newCategoryBtnDiv {
+    user-select: none;
+    overflow: hidden;
+    transition: 0.5s linear;
+    white-space: pre;
+    width: 100%;
+    /* border: 3px solid cyan; */
+    position: relative;
+    background-color: rgb(32, 30, 63);
+}
+
+.newProjectBtn {
+    user-select: none;
+}
+
+/* ABeeZee|Allura|Italiana|Montserrat|Philosopher|Playball|Poiret+One|Quicksand|Sofia */
+.navBtn {
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    background: none;
+    height: 45px;
+    font-size: 20px;
+    padding-right: 5px;
+    padding-left: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.2s;
+    color: rgb(202, 188, 255);
+    font-family: Quicksand;
+    box-shadow: inset 0 5px 10px 0 rgba(0, 0, 0, 0.7);
+}
+
+.navBtn:hover {
+    color: white;
+    text-shadow: 
+    0 0 5px violet
+    , 0 0 20px violet
+    ;
+}
+
+.addProjectBtn,
+.addCategoryBtn {
+    width: 70px;
+    white-space: pre;
+    background-color: rgb(32, 30, 63);
+    position: relative;
+}
+
+.addProjectBtn::before, .addCategoryBtn::before {
+    position: absolute;
+    content: "";
+    top: 0px;
+    left: 0px;
+    width: 1.5px;
+    height: 100%;
+    background-color: rgb(51, 36, 80);
+}
+
+.addProjectBtn::after, .addCategoryBtn::after {
+    position: absolute;
+    content: "";
+    top: 15%;
+    left: 0;
+    width: 2px;
+    height: 70%;
+    background: linear-gradient(to top, transparent, rgb(74, 32, 141), transparent);
+    /* box-shadow: 0 0 5px rgb(34, 32, 66); */
+}
+
+.closeAddProjectBtn,
+.closeAddCategoryBtn {
+    white-space: pre;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(51, 36, 80);
+}
+
+.closeAddProjectBtn:hover::before, .closeAddCategoryBtn:hover::before {
+    filter: 
+    drop-shadow(0 0 5px violet)
+    drop-shadow(0 0 2px violet)
+    ;
+    border: 1.5px solid white;
+    border-right: none;
+    border-bottom: none;
+}
+
+.closeAddProjectBtn::before,
+.closeAddCategoryBtn::before {
+    position: absolute;
+    content: "";
+    border: 1.5px solid rgb(115, 93, 238);
+    border-right: none;
+    border-bottom: none;
+    width:  15px;
+    height: 15px;
+    transition: .5s;
+    transform: rotate(-45deg) translateX(2px) translateY(5px);
+    filter: drop-shadow(0 0 2px violet);
+}
+
+.addProjectInputDiv {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    transition: 0.5s;
+    position: relative;
+    /* border: 2px solid red; */
+}
+
+input[name="projectText"],
+input[name="categoryText"] {
+    /* height: calc(100% - 2px); */
+    height: 100%;
+    padding-left: 10px;
+    width: 100%;
+    background-color: rgb(51, 36, 80);
+    border: none;
+    box-shadow: inset 0 5px 10px 0px rgba(0, 0, 0, 0.5);
+    color: white;
+    outline: none;
+    /* border: 1px solid red; */
+}
+
+.projectInputWrapper, .categoryInputWrapper {
+    width: 68%;
+    height: 100%;
+    transition: 0.5s;
+}
+
+.projectInputErrorAnim, .categoryInputErrorAnim {
+    border: 1.5px dotted red;
+    /* border: 1.5px dotted transparent; */
+}
+
+.projectInputErrorAnim input[name="projectText"] , .categoryInputErrorAnim input[name="categoryText"] {
+    /* margin-top: -2px; */
+    height: 40px;
+    transition: 0.5s;
+}
+
+.categoryErrorParagraph, .projectErrorParagraph {
+    position: absolute;
+    border: 1px solid rgb(122, 35, 35);
+    border-left: 0px;
+    top: -45px;
+    left: -50%;
+    /* background: linear-gradient(rgb(79, 172, 193), rgb(52, 66, 113)); */
+    /* background: linear-gradient(rgb(111, 79, 193), rgb(52, 66, 113)); */
+    background: linear-gradient(rgb(111, 79, 193), rgb(93, 36, 62));
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    border-radius: 20px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 5px white;
+    transition: 0.5s;
+    animation: 0.5s showFromLeft forwards ease-in-out;
+}
+
+@keyframes showFromLeft {
+    0% {
+        left: -50%;
+    }
+    100% {
+        left: 0%;
+    }
+}
+
+input[name="projectText"]::placeholder,
+input[name="categoryText"]::placeholder {
+    color: rgb(173, 214, 255);
+}
+
+.menuParagraph {
+    color: rgb(104, 98, 179);
+    text-shadow: 0 0 2px rgb(104, 98, 179), 0 0 30px rgb(104, 98, 179);
+    width: 100%;
+    font-size: 30px;
+    text-align: center;
+    margin: 0px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(59, 74, 81);
+}
+
+/* ABeeZee|Allura|Italiana|Montserrat|Philosopher|Playball|Poiret+One|Quicksand|Sofia */
+.exportBtn, .importBtn {
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    height: 45px;
+    font-size: 20px;
+    font-weight: lighter;
+    /* text-transform: uppercase; */
+    /* font-family: Poiret One; */
+    /* font-family: Allura; */
+    font-family: Quicksand;
+    border: none;
+    color: rgb(202, 188, 255);
+    background: none;
+    background: -webkit-linear-gradient(rgb(101, 130, 224), rgb(255, 46, 46));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-right: 5px;
+    padding-left: 5px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.2s;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: brightness(150%);
+}
+
+.exportBtn::before {
+    position: absolute;
+    content: "";
+    top: 0px;
+    right: 0px;
+    /* background-color: white; */
+    background: linear-gradient(to top, rgb(255, 76, 21), rgb(55, 21, 134));
+    height: 100%;
+    width: 1.5px;
+    border-radius: 50px;
+    /* box-shadow: 0 0 5px 0 blueviolet; */
+    transform-origin: top;
+    transform: translateY(3px) rotate(10deg);
+}
+
+.exportAndImportBtnsDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* border: 2px solid pink; */
+    height: 100%;
+    overflow: hidden;
+}
+
+.exportAndImportBtnsDiv button:hover {
+    text-shadow: 0 0 5px blueviolet, 0 0 20px blueviolet;
+}
+
+.exportAndImportBtnsInnerWrapper {
+    position: relative;
+    display: flex;
+    background-color: rgb(32, 30, 63);
+    height: fit-content;
+    box-shadow: 0 0 30px 0 rgba(118, 69, 235, 0.5);
+    display: none;
+}
+
+.exportAndImportBtnsInnerWrapper::before {
+    position: absolute;
+    content: "";
+    top: 0px;
+    left: 0%;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, rgb(67, 45, 192), transparent);
+    box-shadow: 0 0 10px 1px black;
+    transition-duration: .3s;
+    /* background-size: 300% 300%; */
+    /* background-position-x: 98%; */
+}
+
+.projectsAndCategories {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    /* border: 1px solid yellow; */
+}
+
+.projectButtonsWrapper, .categoryButtonsWrapper {
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
+    /* justify-content: flex-start; */
+    /* border: 2px solid hotpink; */
+}
+
+.importBtnInput {
+    display: none;
+}
