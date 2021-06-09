@@ -50,7 +50,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      appVer: "1.0.0.3",
+      appVer: "1.0.0.4",
     };
   }
 

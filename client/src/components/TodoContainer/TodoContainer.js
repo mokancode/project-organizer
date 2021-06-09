@@ -382,7 +382,7 @@ export class TodoContainer extends Component {
                     // mPromise();
 
                     if (isEmpty(noteText)) return;
-                    else if (!isEmpty(subNoteText) || !isEmpty(this.subNoteInputRef.current.value)) {
+                    else if (this.subNoteInputRef && (!isEmpty(subNoteText) || !isEmpty(this.subNoteInputRef.current.value))) {
                       subNoteList.push({ text: subNoteText, id: shortid.generate() });
                       this.setState({ subNoteList, subNoteText: "" }, (e) => {
                         this.subnoteInputRef.current.value = "";
@@ -404,7 +404,7 @@ export class TodoContainer extends Component {
                       top: element.offsetTop,
                     });
                   } catch (err) {
-                    // console.log("err: ", err);
+                    console.log("err: ", err);
                   }
                 }
               }}
